@@ -1,0 +1,18 @@
+body{
+    color: lightgrey;
+    background-color: lightslategray
+}
+a{
+    text-decoration: none;
+    font-size: 20px;
+    color: lightpink;
+}
+a:hover{
+    color: rgb(255, 255, 255);
+}
+#spp{
+    width: 400px;
+}
+.nav-main{
+    margin-bottom: 20px;
+}
