@@ -5,9 +5,10 @@ import speech_recognition as sr
 app = Flask(__name__)
 
 
+@app.route('/home', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    # atext- audio text, transcript of an audio file
+    # atext- audio text, *transcript of an audio file
     atext = ''
     
     if request.method == 'POST':
@@ -18,14 +19,11 @@ def index():
         else:
             # afile- audio file
             afile = request.files['file-1']
-            # print(type(afile))
-            # print(type(request.files))
-            # print(request.files)
         
         if afile.filename == '':
             return redirect(request.url)
         
-        if afile:
+        elif afile:
             try:
                 r = sr.Recognizer()
 
@@ -39,9 +37,14 @@ def index():
     return render_template('index.html', transcript=atext)
 
 
-@app.route('/about/')
+@app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', title='About')
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html', title='Contanct')
 
 
 if __name__ == '__main__':
