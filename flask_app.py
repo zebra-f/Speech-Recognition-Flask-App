@@ -1,3 +1,4 @@
+from types import MethodDescriptorType
 from flask import Flask, render_template, redirect, request
 import speech_recognition as sr
 
@@ -46,6 +47,13 @@ def about():
 def contact():
     return render_template('contact.html', title='Contanct')
 
+@app.route('/form', methods=['POST'])
+def form():
+
+    email = request.form.get('email')
+    message = request.form.get('message')
+    
+    return render_template('form.html', email=email)
 
 if __name__ == '__main__':
     app.run(debug=True, threaded=True)

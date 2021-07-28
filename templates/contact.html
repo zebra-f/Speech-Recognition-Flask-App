@@ -1,4 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
 <p>Under Construction</p>
+<br>
+<form action="/form" method="POST" enctype="multipart/form-data">
+    
+    <div>
+        <input type="email" name="email" id="input-email" placeholder="E-mail">
+    </div>
+    
+    <br>
+    
+    <div>
+        <input type="text" name="message" id="input-message" placeholder="Your message goes here">
+    </div>
+    <br>
+    <button type="submit">Send</button>
+</form>
+
+
 {% endblock content %}

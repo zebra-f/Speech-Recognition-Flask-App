@@ -1,29 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-<body>
-    <header>
-        <h1>Speech Recognition</h1>
-    </header>
+<div id="speech-recognition">
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file-1">
+        <br>
+        <br>
+        <input type="submit" value="Transcribe">
+    </form>
+</div>
     
-    <nav class="nav-main">
-        <a href="{{ url_for('about') }}">About</a>
-    </nav>
-    <br>
-    <div id="speech-recognition">
-        <form method="POST" enctype="multipart/form-data">
-            <input type="file" name="file-1">
-            <br>
-            <br>
-            <input type="submit" value="Transcribe">
-        </form>
-    </div>
-    
-    {% if transcript != "" %}
-    <div id="speech-transcription">
-        <h2>Transcript:</h2>
-        <p id="spp">{{transcript}}</p>
-    </div>
-    {% endif %}
-
-</body>
+{% if transcript != "" %}
+<div id="speech-transcription">
+    <h3>Transcript:</h3>
+    <p id="spp">{{transcript}}</p>
+</div>
+{% endif %}
 {% endblock content %}
