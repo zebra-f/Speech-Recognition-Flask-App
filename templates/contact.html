@@ -3,18 +3,18 @@
 <p>Under Construction</p>
 <br>
 <form action="/form" method="POST" enctype="multipart/form-data">
-    
-    <div>
+    <div class="email-input">
         <input type="email" name="email" id="input-email" placeholder="E-mail">
     </div>
-    
     <br>
-    
-    <div>
-        <input type="text" name="message" id="input-message" placeholder="Your message goes here">
+    <div class="message-input">
+        <textarea name="message" id="input-message" maxlength="400" placeholder="Your message goes here">
+        </textarea>
     </div>
     <br>
-    <button type="submit">Send</button>
+    <div class="button">
+        <input type="submit" value="Send">
+    </div>
 </form>
 
 

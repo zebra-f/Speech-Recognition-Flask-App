@@ -27,13 +27,13 @@
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
         </ul>
     </nav>
-    <br>
-    <hr>
-    <br>
-    <section>
-        {% block content %}
-        {% endblock content %}
-    </section>
+    <br><hr><br><hr>
+    <div class="content">
+        <section>
+            {% block content %}
+            {% endblock content %}
+        </section>
+    </div>
     
     <footer>
         <p>by Rafal Zebrowski, more projects: <a href="https://github.com/zebra-f" target="_blank">GitHub</a></p>

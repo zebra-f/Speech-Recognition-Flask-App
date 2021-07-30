@@ -1,6 +1,8 @@
 from types import MethodDescriptorType
 from flask import Flask, render_template, redirect, request
 import speech_recognition as sr
+import smtplib
+from email.message import EmailMessage
 
 
 app = Flask(__name__)
@@ -49,11 +51,28 @@ def contact():
 
 @app.route('/form', methods=['POST'])
 def form():
-
     email = request.form.get('email')
     message = request.form.get('message')
+        
+    msg = EmailMessage()
+    msg['Subject'] = 'dummy e-mail subject string'
+    msg['From'] = 'my-email@gmail.com'
+    msg['To'] = email
+    msg.set_content('dummy e-mail content string')
     
-    return render_template('form.html', email=email)
+    with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
+        # ecnryption
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.ehlo()
+        
+        # use environment variables to store your e-mail password for .login
+        smtp.login("my-email@gmail.com", "my-password")
+        
+        smtp.sendmail(msg)
+
+    return render_template('form.html', email, message)
+
 
 if __name__ == '__main__':
     app.run(debug=True, threaded=True)

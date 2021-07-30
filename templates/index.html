@@ -1,15 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
+<p class="p-description">
+    Choose (browse...) a recording file (.wav) from your drive and hit a transcribe button right below!
+</p>
+<br>
 <div id="speech-recognition">
     <form method="POST" enctype="multipart/form-data">
         <input type="file" name="file-1">
         <br>
-        <br>
-        <input type="submit" value="Transcribe">
+        <div class="button">
+            <input type="submit" value="Transcribe">
+        </div>
     </form>
 </div>
     
 {% if transcript != "" %}
+<br>
 <div id="speech-transcription">
     <h3>Transcript:</h3>
     <p id="spp">{{transcript}}</p>
