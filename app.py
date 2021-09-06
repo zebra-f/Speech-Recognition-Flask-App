@@ -15,7 +15,6 @@ def index():
     atext = ''
     
     if request.method == 'POST':
-        print('data recived')
         
         if 'file-1' not in request.files:
             return redirect(request.url)
@@ -25,7 +24,6 @@ def index():
         
         if afile.filename == '':
             return redirect(request.url)
-        
         elif afile:
             try:
                 r = sr.Recognizer()
@@ -45,12 +43,15 @@ def about():
     return render_template('about.html', title='About')
 
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    if request.method == 'POST':
+        print('rererere')
     return render_template('contact.html', title='Contanct')
 
+
 @app.route('/form', methods=['POST'])
-def form():
+def form():  
     email = request.form.get('email')
     message = request.form.get('message')
         
@@ -71,6 +72,7 @@ def form():
         
         smtp.sendmail(msg)
 
+      
     return render_template('form.html', email, message)
 
 
