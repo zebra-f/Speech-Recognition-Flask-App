@@ -19,8 +19,6 @@
 <body>
     <header>
         <h1 class="logo">Speech Recognition</h1>
-        
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
         <nav>
             <ul class="nav-links">
                 <li><a href="{{ url_for('index') }}">Home</a></li>
@@ -28,17 +26,20 @@
                 <li><a href="{{ url_for('contact') }}">Contact</a></li>
             </ul>
         </nav>
-        <label for="nav-toggle" class="nav-toggle-label">
-            <span></span>
-        </label>
     </header>
     
-    <div class="content">
-        <section>
-            {% block content %}
-            {% endblock content %}
-        </section>
-    </div>
+    <main>
+        <div class="content-1">
+            <section>
+                {% block content %}
+                {% endblock content %}
+            </section>
+        </div>
+        
+        <div class="content-2">
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+    </main>
     
     <footer>
         <p>by Rafal Zebrowski, more projects: <a href="https://github.com/zebra-f" target="_blank">GitHub</a></p>
