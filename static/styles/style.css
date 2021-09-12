@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     background: rgb(175, 127, 199);
@@ -7,39 +13,117 @@ body {
     height: 100vh;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr;
     grid-template-areas: 
     "header"                   
     "main"                       
     "footer";
 }
+/* HEADER */ /* HEADER */ /* HEADER */ /* HEADER */
+
+/* HEADER */ /* HEADER */ /* HEADER */ /* HEADER */
 header {
-    background: rgb(112, 236, 139);
+    background: #0077b6;
     grid-area: header;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 10%;
+    /*max-height: 8vh; */
 }
+.logo {
+    font-size: 1.8rem;
+    color: whitesmoke;
+}
+
+.nav-links {
+    list-style: none;
+}
+.nav-links li {
+    display: inline-block;
+    padding: 0 20px;
+}
+.nav-links li a{
+    transition: all 0.3s ease 0s;
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.nav-links li a:hover{
+    color: #e63946;
+}
+
+
+/* MAIN */ /* MAIN */ /* MAIN */ /* MAIN */
+
+/* MAIN */ /* MAIN */ /* MAIN */ /* MAIN */
 main {
-    background: deepskyblue;
+    background: #caf0f8;
     grid-area: main;
 
     display: grid;
     grid-template-columns: 60% 40%;
     grid-template-rows: 1fr;
     grid-template-areas:
-    "content-1 content-2"
+    "content-1 content-2";
+
+    
 }
 .content-1 {
-    background: ghostwhite;
+    background: #caf0f8;
     grid-area: content-1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .content-2 {
-    background: grey;
+    background: #48cae4;
     grid-area: content-2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+
+    border: solid #90e0ef;
+    border-width: 24px;
+    border-radius: 40px;
 }
+
+
+/* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */
+
+/* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */
 footer {
-    background: rgb(212, 61, 200);
+    background: #023e8a;
     grid-area: footer;
+    /*min-height: 8vh;*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 40px 10%;
+    font-size: 1.2rem;
 }
-@media screen and (max-width:700px) {
+footer p {
+    color: whitesmoke;
+    text-decoration: none;
+}
+footer p a{
+    color: whitesmoke;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    font-size: 1.8rem;
+}
+footer p a:hover {
+    color: #457b9d;
+}
+
+@media screen and (max-width:720px) {
     main {
         display: grid;
         grid-template-columns: 1fr;
