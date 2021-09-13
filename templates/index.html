@@ -1,17 +1,42 @@
 {% extends "layout.html" %}
 {% block content %}
 <p class="p-description">
-    Choose (browse...) a recording file (.wav) from your drive and hit a transcribe button right below!
+    Choose (browse...) an audio file (.wav) from your drive and hit a transcribe button right below!
 </p>
 <br>
 <div id="speech-recognition">
     <form method="POST" enctype="multipart/form-data">
-        <input type="file" name="file-1">
-        <br>
-        <div class="button">
-            <input type="submit" value="Transcribe">
-        </div>
+        <input type="file" name="file-1" id="file-button" hidden="">
+        <button type="button" id="browse-button">Browse</button>
+        <span id="browse-text"></span>
+        
+        <!-- JavaScript -->
+        
+        <script type="text/javascript">
+            const fileButton = document.getElementById("file-button");
+            const browseButton = document.getElementById("browse-button");
+            const filePath = document.getElementById("browse-text");
+            
+            browseButton.addEventListener("click", function() {
+                fileButton.click();
+            });
+
+            fileButton.addEventListener("change", function() {
+                if (fileButton.value) {
+                    filePath.innerHTML = fileButton.value.slice(-20,)
+                } 
+                else {
+                    filePath.innerHTML = "Choose a file...";
+                }
+            });
+        </script>
+        
+        <!-- JavaScript -->
+        
+        <br> 
+        <input type="submit" value="Transcribe" id="transcribe-button">
     </form>
+    
 </div>
     
 {% if transcript != "" %}
